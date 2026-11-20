@@ -1,0 +1,41 @@
+{
+  "sesja": "zasięg dojazdu — decyzja właściciela 2026-11-20 (sesja w chmurze)",
+  "nowe": [
+    {
+      "klucz": "N1",
+      "sekcja": "4",
+      "linia1": "P2 · treść · 🤖 AI · A · Sonnet/low · SPRAWDZONE 2026-11-20",
+      "poLudzku": "Strona mówi tylko „Łódź i okolice”, więc klient spod Łodzi nie wie, czy do niego przyjedziecie, a Google nie kojarzy firmy z nazwami okolicznych miejscowości. Wpisujemy konkretne miejscowości, które ustaliłeś. O dopłacie za dojazd strona nie mówi nic — koszt dojazdu doliczacie w widełkach przy potwierdzeniu terminu.",
+      "liczba": "aleblysk.zgloszenia ↑",
+      "tresc": [
+        "Odpowiedź FAQ „Gdzie dojeżdżacie?” na stronie głównej i na 5 podstronach usług podaje konkretne miejscowości zamiast ogólnych „okolic”; bez słowa o dopłacie.",
+        "Tekst do wstawienia (zatwierdzony przez właściciela 2026-11-20, poza listą — bez Nowosolnej, bo to dzielnica Łodzi): „Sprzątamy w całej Łodzi oraz w Zgierzu, Pabianicach, Konstantynowie Łódzkim, Aleksandrowie Łódzkim, Ksawerowie, Rzgowie i Andrespolu. Dojeżdżamy też dalej, np. do Ozorkowa, Strykowa, Tuszyna, Brzezin czy Koluszek — wpisz adres w rezerwacji albo zadzwoń, a od razu powiemy, kiedy możemy przyjechać.”",
+        "Gdzie: `website/index.html:2017-2020` (FAQ), `lib/uslugi.js:168` (FAQ podstron — po zmianie uruchomić `node scripts/uslugi.js`), schemat `areaServed`: `website/index.html:68-77` i `lib/uslugi.js:260` — „Okolice Łodzi” zamienić na listę obiektów `City` z miejscowościami strefy 1 (Zgierz, Pabianice, Konstantynów Łódzki, Aleksandrów Łódzki, Ksawerów, Rzgów, Andrespol), zostawiając Łódź; test `tests/seo-strona-glowna.test.js:50` oczekuje obszaru „okolice” — dostosować do nowej listy.",
+        "Źródło: skrzynka 2026-11-20 (audyt marketingowy) + 👤 decyzja właściciela 2026-11-20 · Powiązane: #0009 (miejsca w wizytówce Google), #0085 (kierowanie reklam), #0034 (dojazd w widełkach)"
+      ]
+    }
+  ],
+  "zmiany": [
+    {
+      "nr": "0034",
+      "dopisz": [
+        "Zgłoszone też: 2026-11-20, 👤 właściciel — dojazd: bez informacji o dopłacie na stronie; koszt dojazdu poza strefą 1 doliczany w widełkach cenowych przy potwierdzeniu terminu. Strefa 1 (bez doliczania): Łódź, Zgierz, Pabianice, Konstantynów Łódzki, Aleksandrów Łódzki, Ksawerów, Rzgów, Andrespol. Strefa 2 (dalej, ok. 20–30 km, np. Ozorków, Stryków, Tuszyn, Brzeziny, Koluszki, Lutomiersk): dojazd w widełkach, małe zlecenia najlepiej łączyć w jeden dzień. Rachunek z rozmowy: przy zleceniu za 200 zł dojazd 25 km w jedną stronę obniża zarobek z ok. 67 do ok. 35 zł/h, przy zleceniu za 500 zł tylko do ok. 61 zł/h (założenia: auto, ok. 35 km/h, ok. 0,90 zł/km)."
+      ]
+    },
+    {
+      "nr": "0009",
+      "dopisz": [
+        "Zgłoszone też: 2026-11-20, 🤖 AI (zasięg dojazdu, #N1) — w wizytówce Google jako obszar działania wpisać Łódź i miejscowości strefy 1: Zgierz, Pabianice, Konstantynów Łódzki, Aleksandrów Łódzki, Ksawerów, Rzgów, Andrespol (wymaga panelu właściciela)."
+      ]
+    },
+    {
+      "nr": "0085",
+      "dopisz": [
+        "Zgłoszone też: 2026-11-20, 🤖 AI (zasięg dojazdu, #N1) — kierowanie geograficzne pierwszej kampanii: Łódź i miejscowości strefy 1 (Zgierz, Pabianice, Konstantynów Łódzki, Aleksandrów Łódzki, Ksawerów, Rzgów, Andrespol); strefę 2 dodać dopiero przy nadwyżce budżetu albo tylko dla usług o dużej wartości (poremontowe, domy)."
+      ]
+    }
+  ],
+  "skrzynkaUsun": [
+    "2026-11-20 · 🤖 AI (audyt marketingowy 2026-11-20) · „Łódź i okolice” bez nazw miejscowości"
+  ]
+}

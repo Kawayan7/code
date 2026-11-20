@@ -1,0 +1,20 @@
+{
+  "sesja": "zdublowane zdanie o potwierdzeniu pod formularzem rezerwacji — zgłoszenie właściciela 2026-11-20 (sesja w chmurze)",
+  "nowe": [
+    {
+      "klucz": "N1",
+      "sekcja": "4",
+      "linia1": "P2 · treść · 👤 właściciel · A · Haiku/low · SPRAWDZONE 2026-11-20",
+      "poLudzku": "Pod formularzem rezerwacji są dwa zdania o tym samym: wyżej „potwierdzenie z wyceną wyślemy SMS-em”, a tuż nad przyciskiem „po wysłaniu zadzwonimy i podamy widełki”. Klient nie wie, czy dostanie SMS, czy telefon. Zostaje górne zdanie (SMS i e-mail), a dolne usuwamy.",
+      "liczba": "aleblysk.zgloszenia ↑",
+      "tresc": [
+        "Dwie różne obietnice w jednym formularzu: zdanie pod komentarzem (SMS i e-mail) i zdanie nad przyciskiem z #0088 (telefon i widełki); powtarzają informację o potwierdzeniu i wycenie, a sposób kontaktu się różni.",
+        "Zakres: usunąć akapit `p.book-callback` nad przyciskiem i jego styl `.book-callback`; zdanie pod komentarzem („Potwierdzenie terminu z wyceną wyślemy SMS-em, a jeśli podasz w zgłoszeniu, również na adres e-mail.”) zostaje bez zmian. Test #0088 w `tests/tresc.test.js` przerobić tak, żeby pilnował braku `book-callback` i obecności zdania o SMS-ie; sprawdzenie, że podtytuł nie obiecuje „rezerwacji w 30 sekund”, zostaje.",
+        "Gdzie: `website/index.html:1797` (akapit), `:1171-1176` (styl `.book-callback`), `tests/tresc.test.js:136-139` (test #0088)",
+        "Opcja do decyzji właściciela przy odbiorze (nie w zakresie, jeśli nie zdecyduje): dopisać do górnego zdania krótkie „Zapytanie do niczego nie zobowiązuje.”, żeby nie zgubić uspokojenia „bez zobowiązań” z usuwanego zdania.",
+        "Odbiór: zrzut końca formularza na 390 px (jedno zdanie o potwierdzeniu, pod nim dane administratora, Turnstile i przycisk); testy przechodzą.",
+        "Źródło: 👤 właściciel, 2026-11-20 · Powiązane: #0088, #0103"
+      ]
+    }
+  ]
+}

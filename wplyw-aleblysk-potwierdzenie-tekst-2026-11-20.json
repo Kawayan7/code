@@ -1,0 +1,19 @@
+{
+  "sesja": "tekst pod formularzem rezerwacji: potwierdzenie nie jest automatyczne — zgłoszenie właściciela 2026-11-20 (sesja w chmurze)",
+  "nowe": [
+    {
+      "klucz": "N1",
+      "sekcja": "4",
+      "linia1": "P2 · treść · 👤 właściciel · A · Haiku/low · SPRAWDZONE 2026-11-20",
+      "poLudzku": "Pod formularzem rezerwacji jest napisane, że na e-mail wyślemy „automatyczne potwierdzenie”. To nieprawda: każde zlecenie sprawdzacie i wyceniacie sami, a potwierdzenie dostaje klient na telefon i — jeśli go podał — na e-mail. Tekst trzeba poprawić, żeby klient nie czekał na automat i wiedział, że odezwiecie się także na numer telefonu.",
+      "liczba": "aleblysk.zgloszenia ↑",
+      "tresc": [
+        "Obecne zdanie sugeruje automatyczne potwierdzenie i to, że bez e-maila klient nie dostanie szczegółów; w rzeczywistości termin i wycenę potwierdzacie sami, na telefon, a e-mailem dodatkowo, jeśli został podany.",
+        "Nowy tekst (zatwierdzony przez właściciela 2026-11-20): „Każde zlecenie sprawdzamy i wyceniamy sami. Potwierdzenie terminu z wyceną dostaniesz na podany numer telefonu, a jeśli podasz e-mail — także na adres e-mail. Podanie e-maila nie jest wymagane.”",
+        "Gdzie: `website/index.html:1784-1787` (`p.book-note` pod komentarzem w formularzu). Sprawdzone 2026-11-20: słowo „automatyczne” w części dla klienta występuje tylko tu; polityka prywatności (`website/polityka-prywatnosci.html:122-124`, „Adres e-mail jest opcjonalny: służy tylko do wysłania potwierdzenia terminu.”) zostaje zgodna z nowym tekstem.",
+        "Odbiór: test strażnik w `tests/tresc.test.js`, że w formularzu nie ma słowa „automatyczne”, a jest „numer telefonu”; zrzut formularza na 390 px.",
+        "Źródło: 👤 właściciel, 2026-11-20 · Powiązane: #0005, skrzynka 2026-11-11 (telefon wymagany, e-mail opcjonalny)"
+      ]
+    }
+  ]
+}

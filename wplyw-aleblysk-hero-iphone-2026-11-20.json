@@ -1,0 +1,20 @@
+{
+  "sesja": "przesunięta pierwsza sekcja na iPhonie — zgłoszenie właściciela 2026-11-20 (sesja w chmurze)",
+  "nowe": [
+    {
+      "klucz": "N1",
+      "sekcja": "4",
+      "linia1": "P1 · mobile · 👤 właściciel · A · Sonnet/low · SPRAWDZONE 2026-11-20",
+      "poLudzku": "Na iPhonie pierwsza sekcja strony nie jest wyśrodkowana: z lewej ma szeroki margines, a z prawej karta kalendarza prawie dotyka krawędzi ekranu. To pierwsze, co widzi klient wchodzący z telefonu, więc wygląda to na niedopracowanie. Przyczyną jest ukryty formularz rezerwacji, którego pola Safari rysuje szerzej niż Chrome, przez co cała sekcja rozpycha się w prawo. Poprawka to jedna wartość w stylach.",
+      "liczba": "aleblysk.zgloszenia ↑",
+      "tresc": [
+        "Na telefonach kolumna sekcji powitalnej rośnie do szerokości pól formularza (najszersza jest lista „Rodzaj usługi”, liczona od najdłuższej opcji), więc nagłówek, przyciski i karta kalendarza wychodzą w prawo: na iPhonie właściciela lewy margines ok. 43 px, prawy przy karcie ok. 11 px.",
+        "Gdzie: `website/index.html:1432-1436` (`.hero-inner` w `@media (max-width: 960px)`, `grid-template-columns: 1fr`); pole, które rozpycha: `website/index.html:1704` (`select#bService`) i pozostałe pola formularza w `.booking-card` (`:398`)",
+        "Naprawa: `grid-template-columns: minmax(0, 1fr);` zamiast `1fr` — ta sama technika co siatka usług z #0071 (`website/index.html:1451`). Ewentualnie dodatkowo `min-width: 0` na `.hero-visual`.",
+        "Dowód: zrzut z iPhone'a właściciela 2026-11-20 (Safari, strona po wdrożeniu #0096); w Chromium ten sam mechanizm na iPhone SE (320 px): marginesy 40 / 23 px, po poprawce wstrzykniętej w przeglądarce 40 / 40 px; na 430 px z polami poszerzonymi do szerokości jak w Safari: 40 / 16 px → 40 / 40 px. Prawdopodobny wyzwalacz: #0096 zwiększył margines z 24 do 40 px, więc na treść zostało o 32 px mniej.",
+        "Odbiór: test strażnik (np. w `tests/tresc.test.js` albo nowy) sprawdzający, że reguła `.hero-inner` dla ≤960 px używa `minmax(0, 1fr)`; zrzuty 320 / 390 / 430 px z równymi marginesami; po wdrożeniu jeden zrzut z prawdziwego iPhone'a (właściciel przy okazji — nie blokuje zamknięcia).",
+        "Źródło: 👤 właściciel, zrzut z telefonu 2026-11-20 · Powiązane: #0096, #0071"
+      ]
+    }
+  ]
+}

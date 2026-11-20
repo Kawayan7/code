@@ -1,0 +1,20 @@
+{
+  "sesja": "kalendarz rezerwacji: godzina = godzina rozpoczęcia — zgłoszenie właściciela 2026-11-20 (sesja w chmurze)",
+  "nowe": [
+    {
+      "klucz": "N1",
+      "sekcja": "4",
+      "linia1": "P2 · treść · 👤 właściciel · A · Sonnet/low · SPRAWDZONE 2026-11-20",
+      "poLudzku": "W kalendarzu rezerwacji klient wybiera godzinę, ale nigdzie nie jest napisane, że to godzina, o której przyjeżdżacie i zaczynacie sprzątanie. Ktoś może pomyśleć, że wybiera godzinę zakończenia albo że całe sprzątanie zmieści się w tej godzinie. Wystarczy nazwać krok „Godzina rozpoczęcia”, dodać jedno zdanie pod godzinami i tak samo opisać godzinę w mailach.",
+      "liczba": "aleblysk.zgloszenia ↑",
+      "tresc": [
+        "Krok 2 kalendarza nazywa się „Wybierz godzinę”, choć w kodzie lista to godziny startu zlecenia (ostatnia pozycja to ostatnia możliwa godzina rozpoczęcia, a nie zamknięcia); klient nie wie, czy wybiera start, czy przedział.",
+        "Zakres: 1) etykieta kroku: „Godzina rozpoczęcia”; 2) pod siatką godzin jedno zdanie: „O tej godzinie przyjeżdżamy i zaczynamy. Ile potrwa sprzątanie, zależy od metrażu i zakresu — podamy to przy potwierdzeniu terminu.”; 3) komunikat błędu „Wybierz godzinę.” → „Wybierz godzinę rozpoczęcia.” (strona i API); 4) w mailach wiersz „Termin” z „godz. 10:00” na „rozpoczęcie o 10:00” (temat maila może zostać krótki). Podtytuł karty („Wybierz dzień i godzinę — zapytanie wyślesz w 30 sekund.”) bez zmian, żeby nie wydłużać go na telefonie.",
+        "Gdzie: `website/index.html:1726` (etykieta kroku), siatka `#timeGrid` `:1727`, komunikat `website/index.html:2678`, `api/rezerwacja.js:95`, maile `api/booking-mail.js:99` i `:129` (wiersze „Termin” i „Odwołany termin”); ewentualnie podpowiedź w `website/index.html:2534`",
+        "Mail potwierdzenia ma już wiersz „Przewidywany czas realizacji” (`api/booking-mail.js:100`), więc zdanie na stronie odsyła do tego, co klient i tak dostanie.",
+        "Odbiór: test strażnik w `tests/tresc.test.js`, że etykieta kroku zawiera „rozpoczęcia”, i aktualizacja testów maili, jeśli sprawdzają tekst „godz.”; zrzut kroku 2 na 390 px.",
+        "Źródło: 👤 właściciel, 2026-11-20 · Powiązane: #0005 (wycena i czas w panelu), #0057"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "sesja": "SMS z potwierdzeniem do skopiowania w panelu rezerwacji — zgłoszenie właściciela 2026-11-20 (sesja w chmurze)",
+  "nowe": [
+    {
+      "klucz": "N1",
+      "sekcja": "4",
+      "linia1": "P2 · funkcja · 👤 właściciel · A · Sonnet/medium · SPRAWDZONE 2026-11-20",
+      "poLudzku": "Po potwierdzeniu zlecenia w panelu klient dostaje e-mail, ale SMS piszesz za każdym razem ręcznie, choć strona obiecuje potwierdzenie SMS-em. Panel ma sam ułożyć gotowy SMS z tych samych danych co e-mail (termin, godzina rozpoczęcia, czas, wycena, adres), a Ty tylko go kopiujesz jednym przyciskiem albo otwierasz od razu w aplikacji SMS na telefonie. Nic nie wysyła się samo — SMS idzie z Twojego telefonu, a tekst możesz przed wysłaniem poprawić.",
+      "liczba": "aleblysk.zgloszenia ↑",
+      "tresc": [
+        "Strona obiecuje potwierdzenie SMS-em (tekst pod formularzem), a panel generuje tylko e-mail; SMS trzeba pisać ręcznie, co przy kilku zleceniach dziennie zajmuje czas i grozi pomyłką w dacie lub kwocie.",
+        "Zakres: 1) na karcie zlecenia w panelu, dla statusu „Potwierdzona” (i od razu po kliknięciu „Potwierdź i wyślij e-mail” albo „Zapisz zmiany i wyślij ponownie”), blok „SMS do klienta”: pole tekstowe z gotową treścią (edytowalne), przycisk „Kopiuj” (`navigator.clipboard.writeText`, z zapasowym zaznaczeniem tekstu, gdy schowek niedostępny) i link „Otwórz w SMS” (`sms:<numer>?&body=<treść>` — działa na iPhonie i Androidzie); 2) to samo dla odwołania, z szablonem odwołania; 3) komunikat po potwierdzeniu dopisuje „SMS gotowy poniżej — skopiuj i wyślij”, także gdy klient nie podał e-maila.",
+        "Szablon potwierdzenia (dane jak w mailu, puste pola pomijane): „Dzień dobry, tu Ale Błysk. Potwierdzamy termin: {dzień tygodnia, data}, rozpoczęcie o {godzina}, {adres}. Przewidywany czas: ok. {czas}. {Wstępna wycena: {od}–{do} zł, ostateczna na miejscu. | Koszt: {kwota} zł.} Płatność po sprzątaniu. Pytania? Odpisz albo zadzwoń: 571 810 666.” Szablon odwołania: „Dzień dobry, tu Ale Błysk. Potwierdzamy odwołanie terminu {dzień tygodnia, data}, godz. {godzina}. Chcesz umówić inny? aleblysk.com lub 571 810 666.” Treść do akceptacji przez właściciela przy odbiorze — zmiana słów nie wymaga zmian w kodzie poza szablonem.",
+        "Rozstrzygnięcie techniczne: szablon jako czysta funkcja w osobnym pliku (np. `website/admin/sms.js`, ładowany przez `<script>` w panelu i wymagany w testach Node), z tymi samymi regułami co `api/booking-mail.js` (`polishDate`, `durationLabel`, `priceLabel`: równe kwoty = koszt, przedział = wstępna wycena); bez nowego zapisu w bazie i bez zewnętrznej bramki SMS.",
+        "Gdzie: przyciski karty `website/admin/index.html:534-542`, potwierdzenie `:598-631`, odwołanie `:575-593`, komunikat maila `:640-668`, numer klienta `:447`; szablon maila do odwzorowania `api/booking-mail.js:94-145`",
+        "Odbiór: testy funkcji szablonu (przedział, stała kwota, brak wyceny, brak adresu, odwołanie; data i godzina jak w mailu); zrzut karty zlecenia z blokiem SMS na telefonie (390 px); ręczne sprawdzenie linku „Otwórz w SMS” na iPhonie przez właściciela przy najbliższym zleceniu (nie blokuje zamknięcia).",
+        "Źródło: 👤 właściciel, 2026-11-20 · Powiązane: zadanie z tekstem pod formularzem (potwierdzenie SMS-em i e-mailem), #0005"
+      ]
+    }
+  ]
+}

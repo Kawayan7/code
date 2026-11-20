@@ -1,0 +1,14 @@
+diff --git a/website/index.html b/website/index.html
+index 2fdd70c..01070a8 100644
+--- a/website/index.html
++++ b/website/index.html
+@@ -436,7 +436,8 @@
+     }
+ 
+     .bk-step.open {
+-      max-height: 720px;
++      /* none zamiast stałej wysokości: krok 3 na telefonie ma ok. 850–990 px i przycisk „Wyślij zapytanie” był ucinany */
++      max-height: none;
+       opacity: 1;
+       margin-top: 20px;
+     }

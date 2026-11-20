@@ -1,0 +1,21 @@
+{
+  "sesja": "formularz rezerwacji ucina przycisk „Wyślij zapytanie” — zgłoszenie właściciela 2026-11-20 (sesja w chmurze)",
+  "nowe": [
+    {
+      "klucz": "N1",
+      "sekcja": "4",
+      "linia1": "P0 · funkcja · 👤 właściciel · A · Sonnet/low · SPRAWDZONE 2026-11-20",
+      "poLudzku": "Na telefonie nie da się dziś wysłać rezerwacji z kalendarza: ostatni krok formularza jest ucięty i przycisk „Wyślij zapytanie” w ogóle się nie pokazuje. Klient wypełnia dane i nie ma czego kliknąć, więc rezerwacje z telefonu przepadają. Poprawka to jedna wartość w stylach i trzeba ją wdrożyć jak najszybciej.",
+      "liczba": "aleblysk.zgloszenia ↑",
+      "tresc": [
+        "Rozwinięty krok formularza ma stałą maksymalną wysokość 720 px i ukrywa resztę (`overflow: hidden`). Krok 3 („Twoje dane”) ma dziś 849–988 px na telefonach, więc Turnstile i przycisk „Wyślij zapytanie” są obcięte; na komputerze treść ma 730 px i dół przycisku jest ucięty o 10 px.",
+        "Gdzie: `website/index.html:438-442` (`.bk-step.open { max-height: 720px; }`), przy `.bk-step` z `max-height: 0; overflow: hidden` (`:431-436`)",
+        "Naprawa: `max-height: none` w `.bk-step.open` (rozwijanie traci animację wysokości, zostaje płynne pojawienie się); gotowa łatka: `poprawka-formularz-krok3.patch` (repo kawayan7/code, gałąź claude/pensive-cray-n170mr) — `git apply` na `main` @ 59651aa. Ładniejsza animacja (np. `grid-template-rows: 0fr → 1fr`) może przyjść później jako osobne zadanie.",
+        "Dowód: zrzut z iPhone'a właściciela 2026-11-20 15:13 (krok 3 kończy się na górze ramki Turnstile, brak przycisku); pomiar Chromium na www.aleblysk.com po rozwinięciu kroków: 390 px — treść 917 px przy widocznych 720, 430 px — 849/720, 320 px — 988/720, 1440 px — 730/720; po wstrzyknięciu `max-height: none` przycisk widoczny na wszystkich szerokościach.",
+        "Odbiór: test strażnik w `tests/`, że `.bk-step.open` nie ma stałej wysokości w pikselach; zrzut kroku 3 z przyciskiem na 320, 390 i 430 px; po wdrożeniu jedna rezerwacja testowa z telefonu właściciela.",
+        "Do sprawdzenia przy okazji (osobno, nie blokuje): pod Turnstile jest zdanie „Po wysłaniu zadzwonimy, potwierdzimy termin i podamy widełki cenowe — bez zobowiązań.” (#0088), a nad nim nowe „Potwierdzenie terminu z wyceną wyślemy SMS-em…” — dwie różne obietnice; właściciel wybiera jedną.",
+        "Źródło: 👤 właściciel, zrzut z telefonu 2026-11-20 · Powiązane: #0088, zadanie z tekstem o potwierdzeniu SMS-em"
+      ]
+    }
+  ]
+}

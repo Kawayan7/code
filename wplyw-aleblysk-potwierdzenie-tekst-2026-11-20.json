@@ -9,7 +9,7 @@
       "liczba": "aleblysk.zgloszenia ↑",
       "tresc": [
         "Obecne zdanie sugeruje automatyczne potwierdzenie i to, że bez e-maila klient nie dostanie szczegółów; w rzeczywistości termin i wycenę potwierdzacie sami, na telefon, a e-mailem dodatkowo, jeśli został podany.",
-        "Nowy tekst (zatwierdzony przez właściciela 2026-11-20): „Potwierdzenie terminu z wyceną wyślemy SMS-em, a jeśli podasz e-mail — także mailem.” Bez zdania, że e-mail nie jest wymagany: pole ma już w etykiecie „(opcjonalnie)”.",
+        "Nowy tekst (zatwierdzony przez właściciela 2026-11-20): „Potwierdzenie terminu z wyceną wyślemy SMS-em, a jeśli podasz w zgłoszeniu, również na adres e-mail.” Bez zdania, że e-mail nie jest wymagany: pole ma już w etykiecie „(opcjonalnie)”.",
         "Gdzie: `website/index.html:1784-1787` (`p.book-note` pod komentarzem w formularzu). Sprawdzone 2026-11-20: słowo „automatyczne” w części dla klienta występuje tylko tu; polityka prywatności (`website/polityka-prywatnosci.html:122-124`, „Adres e-mail jest opcjonalny: służy tylko do wysłania potwierdzenia terminu.”) zostaje zgodna z nowym tekstem.",
         "Odbiór: test strażnik w `tests/tresc.test.js`, że w formularzu nie ma słowa „automatyczne”, a jest „SMS”; zrzut formularza na 390 px.",
         "Źródło: 👤 właściciel, 2026-11-20 · Powiązane: #0005, skrzynka 2026-11-11 (telefon wymagany, e-mail opcjonalny)"

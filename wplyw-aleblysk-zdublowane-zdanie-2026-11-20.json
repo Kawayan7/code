@@ -1,19 +1,54 @@
 {
-  "sesja": "zdublowane zdanie o potwierdzeniu pod formularzem rezerwacji — zgłoszenie właściciela 2026-11-20 (sesja w chmurze)",
+  "sesja": "formularz, potwierdzenie i kontakt: kto rezerwuje, a kto pyta bez zobowiązań — decyzje właściciela 2026-11-20 (sesja w chmurze)",
   "nowe": [
     {
       "klucz": "N1",
       "sekcja": "4",
       "linia1": "P2 · treść · 👤 właściciel · A · Haiku/low · SPRAWDZONE 2026-11-20",
-      "poLudzku": "Pod formularzem rezerwacji są dwa zdania o tym samym: wyżej „potwierdzenie z wyceną wyślemy SMS-em”, a tuż nad przyciskiem „po wysłaniu zadzwonimy i podamy widełki”. Klient nie wie, czy dostanie SMS, czy telefon. Zostaje górne zdanie (SMS i e-mail), a dolne usuwamy.",
+      "poLudzku": "Pod formularzem rezerwacji są dwa zdania o tym samym: wyżej „potwierdzenie z wyceną wyślemy SMS-em”, a nad przyciskiem „po wysłaniu zadzwonimy i podamy widełki — bez zobowiązań”. Kalendarz jest dla zdecydowanych klientów, więc dolne zdanie usuwamy w całości, bez „bez zobowiązań”. Zostaje tylko górne zdanie o SMS-ie i e-mailu.",
       "liczba": "aleblysk.zgloszenia ↑",
       "tresc": [
-        "Dwie różne obietnice w jednym formularzu: zdanie pod komentarzem (SMS i e-mail) i zdanie nad przyciskiem z #0088 (telefon i widełki); powtarzają informację o potwierdzeniu i wycenie, a sposób kontaktu się różni.",
-        "Zakres: usunąć akapit `p.book-callback` nad przyciskiem i jego styl `.book-callback`; zdanie pod komentarzem („Potwierdzenie terminu z wyceną wyślemy SMS-em, a jeśli podasz w zgłoszeniu, również na adres e-mail.”) zostaje bez zmian. Test #0088 w `tests/tresc.test.js` przerobić tak, żeby pilnował braku `book-callback` i obecności zdania o SMS-ie; sprawdzenie, że podtytuł nie obiecuje „rezerwacji w 30 sekund”, zostaje.",
-        "Gdzie: `website/index.html:1797` (akapit), `:1171-1176` (styl `.book-callback`), `tests/tresc.test.js:136-139` (test #0088)",
-        "Opcja do decyzji właściciela przy odbiorze (nie w zakresie, jeśli nie zdecyduje): dopisać do górnego zdania krótkie „Zapytanie do niczego nie zobowiązuje.”, żeby nie zgubić uspokojenia „bez zobowiązań” z usuwanego zdania.",
-        "Odbiór: zrzut końca formularza na 390 px (jedno zdanie o potwierdzeniu, pod nim dane administratora, Turnstile i przycisk); testy przechodzą.",
-        "Źródło: 👤 właściciel, 2026-11-20 · Powiązane: #0088, #0103"
+        "Dwie różne obietnice w jednym formularzu: zdanie pod komentarzem (SMS i e-mail) i zdanie nad przyciskiem z #0088 (telefon, widełki, „bez zobowiązań”); powtarzają informację o potwierdzeniu, a sposób kontaktu się różni.",
+        "Zakres: usunąć akapit `p.book-callback` nad przyciskiem i styl `.book-callback`; zdanie „Potwierdzenie terminu z wyceną wyślemy SMS-em, a jeśli podasz w zgłoszeniu, również na adres e-mail.” zostaje bez zmian. Decyzja właściciela 2026-11-20: bez dopisywania „bez zobowiązań” w formularzu — ta informacja idzie do sekcji Kontakt (#N2).",
+        "Test #0088 w `tests/tresc.test.js` przerobić tak, żeby pilnował braku `book-callback` i obecności zdania o SMS-ie; sprawdzenie, że podtytuł nie obiecuje „rezerwacji w 30 sekund”, zostaje.",
+        "Gdzie: `website/index.html:1797` (akapit), `:1171-1176` (styl `.book-callback`), `tests/tresc.test.js:136-139`",
+        "Źródło: 👤 właściciel, 2026-11-20 · Powiązane: #0088, #N2, #N3"
+      ]
+    },
+    {
+      "klucz": "N2",
+      "sekcja": "4",
+      "linia1": "P2 · treść · 👤 właściciel · A · Haiku/low · SPRAWDZONE 2026-11-20",
+      "poLudzku": "Kto nie jest jeszcze zdecydowany i chce tylko zapytać o cenę albo zakres, powinien wiedzieć, że może zadzwonić lub napisać bez zobowiązań. To miejsce na sekcję Kontakt, a nie na formularz rezerwacji. Dopisujemy tam jedno zdanie.",
+      "liczba": "aleblysk.zgloszenia ↑",
+      "tresc": [
+        "Sekcja Kontakt kieruje dziś tylko do kalendarza albo telefonu; brakuje zaproszenia dla osób, które chcą najpierw zapytać o cenę lub zakres.",
+        "Zakres: w `p.contact-lead` po zdaniu „Wolisz porozmawiać? Jesteśmy pod telefonem.” dopisać: „Chcesz najpierw zapytać o cenę albo zakres? Zadzwoń lub napisz — odpowiemy i wycenimy bez zobowiązań.” Bez zmian w przyciskach telefonu i e-maila.",
+        "Gdzie: `website/index.html:2005-2006` (`p.contact-lead`)",
+        "Odbiór: test w `tests/tresc.test.js`, że sekcja Kontakt zawiera „bez zobowiązań”, a formularz rezerwacji nie; zrzut sekcji Kontakt na 390 px.",
+        "Źródło: 👤 właściciel, 2026-11-20 · Powiązane: #N1"
+      ]
+    },
+    {
+      "klucz": "N3",
+      "sekcja": "4",
+      "linia1": "P2 · treść · 👤 właściciel · A · Sonnet/low · SPRAWDZONE 2026-11-20",
+      "poLudzku": "Po potwierdzeniu terminu klient może jeszcze zrezygnować. W SMS-ie i mailu z potwierdzeniem dopisujemy: „Jeśli termin jednak Ci nie odpowiada, daj nam znać najpóźniej 24 godziny przed zleceniem.” Odpowiedź w pytaniach i odpowiedziach na stronie mówi to samo, żeby wszędzie obowiązywało 24 godziny.",
+      "liczba": "aleblysk.zgloszenia ↑",
+      "tresc": [
+        "Klient po potwierdzeniu nie wie, do kiedy może zrezygnować; FAQ mówi „najlepiej dzień wcześniej”, a SMS i mail z potwierdzeniem nic o tym nie mówią.",
+        "Zakres: 1) SMS potwierdzenia — przed „Płatność po sprzątaniu.” zdanie „Jeśli termin jednak Ci nie odpowiada, daj nam znać najpóźniej 24 godziny przed zleceniem.”; 2) mail potwierdzenia — druga adnotacja „Zmiana planów? — jeśli termin jednak Ci nie odpowiada, daj nam znać najpóźniej 24 godziny przed zleceniem: 571 810 666.”; 3) FAQ „Jak przełożyć albo odwołać termin?” — „najlepiej dzień wcześniej” → „najpóźniej 24 godziny przed umówioną godziną”, z tym samym uzasadnieniem (termin może zająć ktoś inny). Bez wzmianki o opłatach — zasady opłat za późne odwołanie czekają na decyzję w #0034.",
+        "Gdzie: `website/admin/sms.js:37-58` (`smsPotwierdzenie`, linia 55 „Płatność po sprzątaniu.”), `api/booking-mail.js:108-117` (`notes` potwierdzenia), FAQ `website/index.html:2101-2104`; testy `tests/sms.test.js` i testy maili",
+        "Odbiór: testy SMS-a i maila z nowym zdaniem dla przedziału, stałej kwoty i braku wyceny; zrzut bloku SMS w panelu.",
+        "Źródło: 👤 właściciel, 2026-11-20 · Powiązane: #0103, #0034"
+      ]
+    }
+  ],
+  "zmiany": [
+    {
+      "nr": "0034",
+      "dopisz": [
+        "Zgłoszone też: 2026-11-20, 👤 właściciel — po potwierdzeniu klient może zrezygnować, informując najpóźniej 24 godziny przed zleceniem; tak mówią SMS, mail i FAQ (#N3). O opłacie za późniejsze odwołanie nie zdecydowano — strona i wiadomości jej nie wspominają."
       ]
     }
   ]

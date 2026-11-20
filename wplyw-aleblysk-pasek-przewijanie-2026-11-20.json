@@ -1,0 +1,20 @@
+{
+  "sesja": "tekst pierwszej sekcji nachodzi na logo przy przewijaniu na telefonie — zgłoszenie właściciela 2026-11-20 (sesja w chmurze)",
+  "nowe": [
+    {
+      "klucz": "N1",
+      "sekcja": "4",
+      "linia1": "P2 · mobile · 👤 właściciel · A · Haiku/low · SPRAWDZONE 2026-11-20",
+      "poLudzku": "Gdy na telefonie lekko przewinie się stronę w dół, napis „Profesjonalne sprzątanie · Łódź i okolice” wjeżdża na logo, bo górny pasek jest wtedy jeszcze przezroczysty. Tło paska pojawia się dopiero po przewinięciu o 60 pikseli. Wystarczy, że tło pojawi się od pierwszego przesunięcia — wtedy tekst chowa się pod paskiem zamiast nachodzić na logo.",
+      "liczba": "aleblysk.zgloszenia ↑",
+      "tresc": [
+        "Przy przewinięciu o 1–60 px górny pasek (stały, przezroczysty) leży na tekście hero, więc nadtytuł i nagłówek nachodzą na logo i przycisk menu. Widać to na każdym telefonie, bo pierwszy ruch palcem zwykle przewija o kilkadziesiąt pikseli.",
+        "Gdzie: `website/index.html:2189` (`nav.classList.toggle('scrolled', window.scrollY > 60)`), styl tła `website/index.html:130` (`nav.scrolled`)",
+        "Naprawa: próg `> 0` zamiast `> 60` (tło paska od pierwszego piksela); dodatkowo to samo sprawdzenie raz przy wczytaniu strony, bo Safari po odświeżeniu przywraca przewinięcie bez zdarzenia `scroll`. Na komputerze zmiana działa tak samo i niczego nie psuje — pasek dostaje tło od razu po ruchu kółkiem.",
+        "Dowód: zrzut z iPhone'a właściciela 2026-11-20 14:02 (strona przewinięta o ok. 50 px, nadtytuł na wysokości logo); odtworzone w Chromium 390 px przy `scrollTo(0, 50)`, a po wymuszeniu klasy `scrolled` tekst chowa się pod paskiem.",
+        "Odbiór: test strażnik, że próg przewinięcia w skrypcie paska wynosi 0 i że klasa jest ustawiana także przy wczytaniu; zrzuty 390 px przy przewinięciu 0 i 50 px.",
+        "Źródło: 👤 właściciel, zrzut z telefonu 2026-11-20 · Powiązane: #0100, #0098"
+      ]
+    }
+  ]
+}

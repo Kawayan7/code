@@ -1,0 +1,125 @@
+{
+  "sesja": "audyt marketingowy strony www.aleblysk.com, 2026-11-20 (sesja w chmurze)",
+  "nowe": [
+    {
+      "klucz": "N1",
+      "sekcja": "4",
+      "linia1": "P2 · GUI · 🤖 AI · A · Sonnet/low · NOWE",
+      "poLudzku": "W menu jest „Opinie”, ale sekcja nie pokazuje jeszcze żadnej opinii, tylko prośbę o jej wystawienie. Klient, który klika, żeby sprawdzić firmę, nic tam nie znajduje i może uznać, że nikt jeszcze z niej nie korzystał. Do pierwszych opinii w Google lepiej zdjąć ten punkt z menu, a samą prośbę o opinię zostawić niżej na stronie.",
+      "liczba": "aleblysk.zgloszenia ↑",
+      "tresc": [
+        "Klient z menu trafia na sekcję bez żadnej opinii, co osłabia zaufanie tuż przed rezerwacją (zwłaszcza przy ruchu z Google Ads).",
+        "Gdzie: `website/index.html:1594` (link `#opinie` w menu), sekcja `website/index.html:1979-1992` · Źródło: 🤖 AI, audyt marketingowy strony 2026-11-20",
+        "Odbiór: „Opinie” znika z menu na komputerze i w menu mobilnym; link wraca razem z kartami opinii (instrukcja nad `#opinie`, #0044).",
+        "Powiązane: #0020, #0044, #0053"
+      ]
+    },
+    {
+      "klucz": "N2",
+      "sekcja": "4",
+      "linia1": "P2 · treść · 🤖 AI · A · Sonnet/low · NOWE",
+      "poLudzku": "Przy kalendarzu klient widzi tylko ceny „od” i nie wie, że po wysłaniu zapytania oddzwonicie, potwierdzicie termin i podacie widełki ceny. Ta informacja jest dopiero kilka ekranów niżej. Jedno zdanie przy przycisku, np. „Po wysłaniu zadzwonimy, potwierdzimy termin i podamy widełki cenowe — bez zobowiązań”, zmniejsza obawę przed kliknięciem. Przy okazji podtytuł obiecuje rezerwację „w 30 sekund”, a przycisk wysyła zapytanie — warto to ujednolicić.",
+      "liczba": "aleblysk.zgloszenia ↑",
+      "tresc": [
+        "Przed wysłaniem klient nie wie, kiedy i jak pozna cenę, a obietnica „rezerwacji w 30 sekund” rozmija się z zapytaniem potwierdzanym telefonicznie.",
+        "Gdzie: `website/index.html:1639` (podtytuł „online, w 30 sekund”), `:1731` i `:2762` (przycisk „Wyślij zapytanie”); krok 2 opisany w „Jak to działa?” (`:1899`) · Źródło: audyt marketingowy 2026-11-20; 👤 właściciel 2026-11-20: widełki podaje przy potwierdzeniu terminu z kalendarza",
+        "Uwaga: teksty strony pilnuje `tests/tresc.test.js` — zaktualizować razem z treścią.",
+        "Powiązane: #0005, #0016, #0057"
+      ]
+    },
+    {
+      "klucz": "N3",
+      "sekcja": "4",
+      "linia1": "P2 · GUI · 🤖 AI · A · Sonnet/low · NOWE",
+      "poLudzku": "Przycisk „Umów sprzątanie” w górnym menu ma przygaszony napis i wygląda na nieaktywny, choć to najważniejszy przycisk na stronie. Napis przejmuje przezroczystość zwykłych linków menu. Wystarczy pełny kolor napisu albo jasne tło, takie jak ma przycisk „Zadzwoń” na górze strony.",
+      "liczba": "aleblysk.zgloszenia ↑",
+      "tresc": [
+        "Kontrast napisu do tła wynosi 3,3:1 przy 13 px (WCAG AA wymaga dla takiego tekstu 4,5:1), więc główne wezwanie do działania przyciąga wzrok słabiej niż powinno.",
+        "Gdzie: `website/index.html:161-166` (`.nav-links a` z `rgba(245, 242, 236, .65)` nadpisuje kolor), `:172-185` (`.nav-cta`, tło `#4f6a43`) · Dowód: kolor odczytany w przeglądarce na www.aleblysk.com 2026-11-20 · Źródło: audyt marketingowy 2026-11-20"
+      ]
+    },
+    {
+      "klucz": "N4",
+      "sekcja": "4",
+      "linia1": "P3 · GUI · 🤖 AI · A · Haiku/low · NOWE",
+      "poLudzku": "Dni w kalendarzu rezerwacji są napisane innym krojem pisma (Arial) niż reszta strony. To drobiazg, ale widoczny w najważniejszym miejscu strony i psuje staranny wygląd.",
+      "liczba": "aleblysk.zgloszenia ↑",
+      "tresc": [
+        "Przyciski dni nie przejmują kroju Outfit, bo przeglądarka nadaje przyciskom własną czcionkę.",
+        "Gdzie: `website/index.html:1011-1019` (`.cal-day` bez `font-family: inherit`) · Źródło: audyt marketingowy 2026-11-20"
+      ]
+    },
+    {
+      "klucz": "N5",
+      "sekcja": "4",
+      "linia1": "P3 · kod · 🤖 AI · A · Sonnet/low · NOWE",
+      "poLudzku": "W kodzie strony, który każdy może podejrzeć w przeglądarce, są wewnętrzne notatki: numery zadań, opis usuniętych opinii i decyzji czekających na właściciela. Klientom to nie przeszkadza, ale konkurencja albo dociekliwy klient może to przeczytać i odebrać jako nieprofesjonalne. Notatki lepiej trzymać w plikach zadań, a nie na stronie.",
+      "tresc": [
+        "Publiczny kod strony zawiera m.in. informację, że wcześniejsze trzy karty opinii „zostały usunięte”, i odwołania do otwartych decyzji (#0022, #0026, #0034).",
+        "Gdzie: `website/index.html:1951-1978` (instrukcja nad `#opinie`), `:1995-2000` (komentarz nad FAQ); pozostałe: `rg -n \"<!--\" website/index.html` · Źródło: audyt marketingowy 2026-11-20",
+        "Rozstrzygnięcie dla wykonawcy: instrukcje przenieść do `tasks/` (wzór karty opinii np. do #0044), w HTML zostawić krótkie znaczniki sekcji bez numerów zadań i treści decyzji."
+      ]
+    },
+    {
+      "klucz": "N6",
+      "sekcja": "4",
+      "linia1": "P3 · GUI · 🤖 AI · A · Sonnet/medium · NOWE",
+      "poLudzku": "Na komputerze sekcje strony zaczynają się w różnych miejscach od lewej krawędzi, a pasek pod cennikiem jest szerszy niż tabele nad nim. Część napisów jest bardzo mała: nadtytuły sekcji mają 10 pikseli, a linki w menu 13. Oko wyłapuje to jako „coś nie gra”, nawet jeśli klient nie umie powiedzieć co. Wyrównanie i powiększenie tych napisów podniesie wrażenie staranności.",
+      "liczba": "aleblysk.zgloszenia ↑",
+      "tresc": [
+        "Lewe krawędzie treści przy 1440 px: góra strony i stopka ok. 180 px, sekcje ok. 220 px, tabele cennika i FAQ ok. 310 px; pasek „Podane ceny są orientacyjne” wychodzi poza prawą krawędź tabel.",
+        "Gdzie: `website/index.html:240-242` (`.hero-inner`, 1180 px), `:477` (1080 px), `:737-741` (`.cennik-cols`), `:789-795` (`.cennik-note`), `:270-279` (`.eyebrow`, 10 px), `:486-492` (`.slbl`, 10 px), `:161-163` (menu, 13 px) · Dowód: zrzuty 1440×900 z www.aleblysk.com, 2026-11-20 · Źródło: audyt marketingowy 2026-11-20"
+      ]
+    },
+    {
+      "klucz": "N7",
+      "sekcja": "4",
+      "linia1": "P3 · mobile · 🤖 AI · A · Sonnet/low · NOWE",
+      "poLudzku": "Na telefonie napis nad hasłem łamie się w złym miejscu („ŁÓDŹ I” / „OKOLICE”), a duże hasło zajmuje cały pierwszy ekran, więc kalendarz rezerwacji widać dopiero po przewinięciu. Dolny pasek z przyciskami „Zadzwoń” i „Zarezerwuj” częściowo to ratuje. Nierozdzielne „Łódź i okolice” i nieco mniejsze hasło poprawią pierwsze wrażenie.",
+      "liczba": "aleblysk.zgloszenia ↑",
+      "tresc": [
+        "Gdzie: nadtytuł w hero `website/index.html:1621` (zamiast spacji `&nbsp;` w „Łódź i Okolice”), styl `.eyebrow` `:270-279`, rozmiar H1 w regułach `@media (max-width: 960px)` od `:1415` · Dowód: zrzut iPhone 13 (390 px) z www.aleblysk.com, 2026-11-20 · Źródło: audyt marketingowy 2026-11-20"
+      ]
+    },
+    {
+      "klucz": "N8",
+      "sekcja": "3a",
+      "linia1": "P3 · treść · 🤖 AI · — · decyzja · NOWE",
+      "poLudzku": "Sekcja „O nas” wymienia zalety, ale nie mówi, kto przyjeżdża sprzątać. Klient wpuszcza obcych do domu, więc imię, dwa zdania i zdjęcie osoby prowadzącej firmę albo zespołu mocno budują zaufanie, zwłaszcza dopóki nie ma opinii. Nie trzeba do tego zdjęć z realizacji. Opcje: 1) zdjęcie i dwa zdania od osoby prowadzącej firmę albo od zespołu, 2) samo imię i krótka historia, bez zdjęcia, 3) zostawiamy jak jest do czasu opinii i zdjęć z realizacji — rekomendacja: 1.",
+      "liczba": "aleblysk.zgloszenia ↑",
+      "tresc": [
+        "Gdzie: `website/index.html:1749` (sekcja `#onas`, „Co nas wyróżnia?”) · Źródło: audyt marketingowy 2026-11-20; 👤 właściciel 2026-11-20: zdjęcia z realizacji dopiero po większej liczbie zleceń (#0011, #0017) — to zadanie dotyczy zdjęcia osoby, nie realizacji.",
+        "Po decyzji agent: tekst i układ w sekcji `#onas`, zgodnie z `BRAND.md`."
+      ]
+    }
+  ],
+  "zmiany": [
+    {
+      "nr": "0031",
+      "dopisz": [
+        "Zgłoszone też: 2026-11-20, 🤖 AI (audyt marketingowy) — link „Blog” jest w menu wszystkich 5 podstron usług (`website/uslugi/*.html:100`) i w nagłówku bloga (`lib/blog.js:159`), więc pusta strona bloga jest osiągalna z każdej podstrony usługi. Do pierwszego artykułu: zdjąć te linki tak jak na stronie głównej."
+      ]
+    },
+    {
+      "nr": "0020",
+      "dopisz": [
+        "Zgłoszone też: 2026-11-20, 👤 właściciel — opinie są w trakcie zbierania; kolejność: najpierw opinie, potem kampania Google Ads, żeby reklama prowadziła na stronę z dowodem zaufania."
+      ]
+    },
+    {
+      "nr": "0022",
+      "dopisz": [
+        "Zgłoszone też: 2026-11-20, 👤 właściciel — pokazanie na stronie OC, gwarancji poprawki i lat doświadczenia (sygnały zaufania z audytu marketingowego 2026-11-20) na razie odpuszczone; nie proponować ponownie bez nowej decyzji."
+      ]
+    },
+    {
+      "nr": "0007",
+      "dopisz": [
+        "Zgłoszone też: 2026-11-20, 🤖 AI (audyt marketingowy) — hasło w nagłówku strony („Twój dom błyszczy. Ty odpoczywasz.”) pasuje do każdej firmy sprzątającej; konkretne wyróżniki (ten sam zespół, płatność po sprzątaniu, niedziele i święta) są schowane w kafelkach. Przy wyborze hasła rozważyć je też dla nagłówka strony (`website/index.html:1621-1622`)."
+      ]
+    }
+  ],
+  "skrzynka": [
+    "🤖 AI (audyt marketingowy 2026-11-20) · „Łódź i okolice” bez nazw miejscowości — wymienienie obsługiwanych miejscowości (np. Zgierz, Pabianice, Konstantynów Łódzki, Aleksandrów Łódzki) w FAQ „Gdzie dojeżdżacie?” albo w stopce pomogłoby w lokalnym wyszukiwaniu; faktyczny zasięg dojazdu zna tylko właściciel — `website/index.html:2037`"
+  ]
+}

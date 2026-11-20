@@ -33,11 +33,11 @@
       "klucz": "N3",
       "sekcja": "4",
       "linia1": "P2 · treść · 👤 właściciel · A · Sonnet/low · SPRAWDZONE 2026-11-20",
-      "poLudzku": "Po potwierdzeniu terminu klient może jeszcze zrezygnować. W SMS-ie i mailu z potwierdzeniem dopisujemy: „Jeśli termin jednak Ci nie odpowiada, daj nam znać najpóźniej 24 godziny przed zleceniem.” Odpowiedź w pytaniach i odpowiedziach na stronie mówi to samo, żeby wszędzie obowiązywało 24 godziny.",
+      "poLudzku": "Po potwierdzeniu terminu klient może jeszcze zrezygnować. W SMS-ie i mailu z potwierdzeniem dopisujemy: „Termin Ci nie odpowiada? Musisz zrezygnować z realizacji zlecenia? Poinformuj nas najpóźniej 24 godziny przed rozpoczęciem zarezerwowanej usługi.” Odpowiedź w pytaniach i odpowiedziach na stronie mówi to samo, żeby wszędzie obowiązywało 24 godziny.",
       "liczba": "aleblysk.zgloszenia ↑",
       "tresc": [
         "Klient po potwierdzeniu nie wie, do kiedy może zrezygnować; FAQ mówi „najlepiej dzień wcześniej”, a SMS i mail z potwierdzeniem nic o tym nie mówią.",
-        "Zakres: 1) SMS potwierdzenia — przed „Płatność po sprzątaniu.” zdanie „Jeśli termin jednak Ci nie odpowiada, daj nam znać najpóźniej 24 godziny przed zleceniem.”; 2) mail potwierdzenia — druga adnotacja „Zmiana planów? — jeśli termin jednak Ci nie odpowiada, daj nam znać najpóźniej 24 godziny przed zleceniem: 571 810 666.”; 3) FAQ „Jak przełożyć albo odwołać termin?” — „najlepiej dzień wcześniej” → „najpóźniej 24 godziny przed umówioną godziną”, z tym samym uzasadnieniem (termin może zająć ktoś inny). Bez wzmianki o opłatach — zasady opłat za późne odwołanie czekają na decyzję w #0034.",
+        "Zakres (treść zatwierdzona przez właściciela 2026-11-20): 1) SMS potwierdzenia — przed „Płatność po sprzątaniu.” zdanie „Termin Ci nie odpowiada? Musisz zrezygnować z realizacji zlecenia? Poinformuj nas najpóźniej 24 godziny przed rozpoczęciem zarezerwowanej usługi.”; 2) mail potwierdzenia — osobna adnotacja z tą samą treścią: pogrubione „Termin Ci nie odpowiada?”, dalej „Musisz zrezygnować z realizacji zlecenia? Poinformuj nas najpóźniej 24 godziny przed rozpoczęciem zarezerwowanej usługi.” (jeśli `layout` wymaga pary nagłówek—treść, dopuścić adnotację bez myślnika); 3) FAQ „Jak przełożyć albo odwołać termin?” — „najlepiej dzień wcześniej” → „najpóźniej 24 godziny przed rozpoczęciem zarezerwowanej usługi”, z tym samym uzasadnieniem (termin może zająć ktoś inny). Bez wzmianki o opłatach — zasady opłat za późne odwołanie czekają na decyzję w #0034.",
         "Gdzie: `website/admin/sms.js:37-58` (`smsPotwierdzenie`, linia 55 „Płatność po sprzątaniu.”), `api/booking-mail.js:108-117` (`notes` potwierdzenia), FAQ `website/index.html:2101-2104`; testy `tests/sms.test.js` i testy maili",
         "Odbiór: testy SMS-a i maila z nowym zdaniem dla przedziału, stałej kwoty i braku wyceny; zrzut bloku SMS w panelu.",
         "Źródło: 👤 właściciel, 2026-11-20 · Powiązane: #0103, #0034"
@@ -48,7 +48,7 @@
     {
       "nr": "0034",
       "dopisz": [
-        "Zgłoszone też: 2026-11-20, 👤 właściciel — po potwierdzeniu klient może zrezygnować, informując najpóźniej 24 godziny przed zleceniem; tak mówią SMS, mail i FAQ (#N3). O opłacie za późniejsze odwołanie nie zdecydowano — strona i wiadomości jej nie wspominają."
+        "Zgłoszone też: 2026-11-20, 👤 właściciel — po potwierdzeniu klient może zrezygnować, informując najpóźniej 24 godziny przed rozpoczęciem zarezerwowanej usługi; tak mówią SMS, mail i FAQ (#N3). O opłacie za późniejsze odwołanie nie zdecydowano — strona i wiadomości jej nie wspominają."
       ]
     }
   ]

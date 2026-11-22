@@ -1,5 +1,5 @@
 {
-  "sesja": "przycisk „Policz orientacyjną cenę” wyśrodkowany na telefonie — zgłoszenie właściciela 2026-11-22 (sesja w chmurze)",
+  "sesja": "cennik: wyśrodkowany przycisk „Policz orientacyjną cenę” na telefonie i kolor ramki o cenach orientacyjnych — zgłoszenia właściciela 2026-11-22 (sesja w chmurze)",
   "nowe": [
     {
       "klucz": "N1",
@@ -14,6 +14,21 @@
         "Dowód: zrzut z iPhone'a właściciela 2026-11-22 17:47; w Chromium 390 px po wstrzyknięciu reguły przycisk ma po 80 px marginesu z obu stron, a zdanie pod nim jest wyśrodkowane.",
         "Odbiór: zrzuty sekcji Cennik na 320, 390 i 1440 px.",
         "Źródło: 👤 właściciel, 2026-11-22"
+      ]
+    },
+    {
+      "klucz": "N2",
+      "sekcja": "4",
+      "linia1": "P3 · GUI · 👤 właściciel · A · Haiku/low · SPRAWDZONE 2026-11-22",
+      "poLudzku": "Ramka „Podane ceny są orientacyjne. Ostateczna wycena zawsze jest indywidualna.” pod cennikiem ma jaśniejszą zieleń niż ciemna karta „Potrzebujesz więcej informacji?” w sekcji usług. Ramka dostaje ten sam ciemnozielony kolor, żeby oba elementy wyglądały spójnie — na komputerze i telefonie.",
+      "liczba": "aleblysk.zgloszenia ↑",
+      "tresc": [
+        "Ramka pod cennikiem ma tło `#4f6a43`, a ciemna karta usług `.svc.dark` — `var(--ink)` (`#2e4a24`); dwa odcienie zieleni w sąsiednich sekcjach wyglądają przypadkowo.",
+        "Naprawa: `.cennik-note { background: var(--ink); }` zamiast `#4f6a43`; tekst zostaje jasny (`#f5f2ec`), kontrast rośnie. Bez zmian w zaokrągleniu, odstępach i treści.",
+        "Gdzie: `website/index.html:838-850` (`.cennik-note` i `.cennik-note p`), kolor wzorcowy `:589-594` (`.svc.dark`, `background: var(--ink)`), zmienna `--ink` `:95`.",
+        "Dowód: makieta w Chromium (390 i 1440 px) z podmienionym kolorem, przesłana właścicielowi 2026-11-22.",
+        "Odbiór: zrzuty sekcji Cennik na 390 i 1440 px; kolor ramki taki sam jak ciemnej karty w sekcji usług.",
+        "Źródło: 👤 właściciel, 2026-11-22 · Powiązane: #N1"
       ]
     }
   ]

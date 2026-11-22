@@ -1,5 +1,5 @@
 {
-  "sesja": "drugi audyt strony 2026-11-22: karty usług na telefonie, komunikat kalkulatora, drobiazgi (sesja w chmurze)",
+  "sesja": "drugi audyt strony 2026-11-22: karty usług na telefonie, komunikat kalkulatora, pusty blog w Google, drobiazgi (sesja w chmurze)",
   "nowe": [
     {
       "klucz": "N1",
@@ -43,6 +43,28 @@
         "Gdzie: `website/index.html:2386-2388` (`p.contact-lead`), komentarze `:1925` i `:2581`; testy treści Kontaktu w `tests/tresc.test.js` (zachować sprawdzenie „bez zobowiązań” w Kontakcie).",
         "Odbiór: zrzut sekcji Kontakt na 390 i 1440 px; `rg -n \"<!--\" website/index.html` bez numerów zadań i notatek o opiniach; testy przechodzą.",
         "Źródło: 🤖 AI, drugi audyt strony 2026-11-22 · Powiązane: #0095, #0044"
+      ]
+    },
+    {
+      "klucz": "N4",
+      "sekcja": "4",
+      "linia1": "P2 · wzrost · 🤖 AI · A · Sonnet/low · SPRAWDZONE 2026-11-22",
+      "poLudzku": "Blog nie ma jeszcze żadnego artykułu, a mimo to strona zgłasza go Google w mapie strony. Google może uznać go za pustą stronę bez treści, co nie pomaga w wynikach wyszukiwania. Dopóki nie ma pierwszego artykułu, blog ma być ukryty przed Google i pominięty w mapie strony; po pierwszej publikacji wróci sam, bez niczyjej pracy.",
+      "liczba": "aleblysk.zgloszenia ↑",
+      "tresc": [
+        "`/blog` pokazuje tylko „Pierwsze artykuły już wkrótce” (sprawdzone 2026-11-22), a `sitemap.xml` go zgłasza i strona nie ma `noindex`; zgłaszane już przy #0031 (2026-11-15 i 2026-11-16) i wciąż aktualne.",
+        "Zakres: 1) `renderList(posts)` — gdy lista artykułów jest pusta, `layout` dostaje `robots: 'noindex'` (tak jak `renderNotFound` i `renderUnavailable`); z artykułami bez `robots`; 2) `renderSitemap(posts)` — wpis `/blog` tylko wtedy, gdy jest co najmniej jeden opublikowany artykuł; strona główna, polityka i podstrony usług zostają jak dziś. Gdy baza nie odpowie (`api/sitemap.js`, `catch`), mapa wychodzi bez `/blog` — to bezpieczniejsze niż zgłaszanie pustej strony.",
+        "Gdzie: `lib/blog.js:139-147` (`layout`, pole `robots`), `:176-200` (`renderList`, pusty stan `:186`), `:278-290` (`renderSitemap`, wpis `/blog` `:283`), `api/sitemap.js:20-31`; testy `tests/blog.test.js:105` i następne (mapa) oraz test listy — dopisać przypadki: pusta lista → `noindex` i brak `/blog` w mapie; lista z artykułem → bez `noindex` i z `/blog`.",
+        "Odbiór: testy przechodzą; po wdrożeniu `curl -s https://www.aleblysk.com/sitemap.xml` bez `/blog`, a `https://www.aleblysk.com/blog` ma `<meta name=\"robots\" content=\"noindex\">`.",
+        "Źródło: 🤖 AI, drugi audyt strony 2026-11-22 · Powiązane: #0031, #0029"
+      ]
+    }
+  ],
+  "zmiany": [
+    {
+      "nr": "0031",
+      "dopisz": [
+        "Zgłoszone też: 2026-11-22, 🤖 AI (drugi audyt) — `/blog` w mapie strony i bez `noindex` przeniesione do osobnego zadania #N4 (ukrycie przed Google do pierwszego artykułu, powrót automatycznie po publikacji); to zadanie dotyczy dalej tylko linku „Blog” w menu i stopce."
       ]
     }
   ]

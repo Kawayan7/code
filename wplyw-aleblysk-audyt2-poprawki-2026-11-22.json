@@ -1,0 +1,49 @@
+{
+  "sesja": "drugi audyt strony 2026-11-22: karty usług na telefonie, komunikat kalkulatora, drobiazgi (sesja w chmurze)",
+  "nowe": [
+    {
+      "klucz": "N1",
+      "sekcja": "4",
+      "linia1": "P2 · mobile · 🤖 AI · A · Sonnet/low · SPRAWDZONE 2026-11-22",
+      "poLudzku": "Na telefonie karty usług stoją po dwie obok siebie i są tak wąskie, że opisy łamią się po jedno, dwa słowa w linijce, a cała sekcja zajmuje około trzech ekranów przewijania. Na telefonach ustawiamy jedną kartę w rzędzie: tekst czyta się normalnie, a sekcja robi się krótsza. Na tabletach i komputerze bez zmian.",
+      "liczba": "aleblysk.zgloszenia ↑",
+      "tresc": [
+        "Przy 390 px siatka usług ma 2 kolumny po ok. 150 px treści: opisy łamią się co 1–2 słowa („Sprzątanie / generalne, / regularne i…”), karty są wysokie, sekcja ma ok. 2000 px wysokości (zrzut z drugiego audytu 2026-11-22).",
+        "Zakres: na ekranach do 560 px jedna kolumna (`grid-template-columns: minmax(0, 1fr)`); w karcie ikona w jednym rzędzie z nazwą usługi (ikona po lewej, nazwa obok), żeby karta była niska; ciemna karta „Potrzebujesz więcej informacji?” zostaje na całą szerokość. Między 561 a 960 px zostają 2 kolumny jak dziś, na komputerze 3.",
+        "Uwaga dla wykonawcy: blok `@media (max-width: 560px)` stoi w pliku PRZED blokiem `@media (max-width: 960px)` (`:1618` vs `:1740`), a ten ustawia 2 kolumny — regułę jednej kolumny trzeba umieścić po bloku 960 px (np. nowy krótki blok `@media (max-width: 560px)` za nim), inaczej zostanie nadpisana. Reguła łamania długich słów (`hyphens: auto` przy `.svc-n`) przestaje być potrzebna przy jednej kolumnie.",
+        "Gdzie: `website/index.html:563-567` (`.svc-grid`), `:1663-1680` (karty w bloku 560 px), `:1768-1771` (2 kolumny w bloku 960 px); test `tests/tresc.test.js:61-64` (#0071) — dopisać sprawdzenie jednej kolumny do 560 px, zachować sprawdzenie `minmax(0, 1fr)`.",
+        "Odbiór: zrzuty sekcji usług na 320, 390, 430, 768 i 1440 px; na 390 px sekcja wyraźnie niższa niż ok. 2000 px; bez przewijania w bok.",
+        "Źródło: 🤖 AI, drugi audyt strony 2026-11-22 · Powiązane: #0071"
+      ]
+    },
+    {
+      "klucz": "N2",
+      "sekcja": "4",
+      "linia1": "P2 · treść · 🤖 AI · A · Haiku/low · SPRAWDZONE 2026-11-22",
+      "poLudzku": "W formularzu rezerwacji, zanim klient wybierze usługę, w miejscu na orientacyjną cenę pojawia się samo „Wybierz rodzaj usługi.” — wygląda to jak komunikat o błędzie, choć klient niczego źle nie zrobił. Zmieniamy tekst tak, żeby zapowiadał, co się stanie: „Wybierz rodzaj usługi, a policzymy orientacyjną cenę.”",
+      "liczba": "aleblysk.zgloszenia ↑",
+      "tresc": [
+        "Pusty stan kalkulatora ceny brzmi jak walidacja pola, a ramka wyników stoi w formularzu między polami; klient może uznać, że popełnił błąd.",
+        "Zakres: tekst pustego stanu „Wybierz rodzaj usługi.” → „Wybierz rodzaj usługi, a policzymy orientacyjną cenę.” w obu miejscach: w HTML (stan początkowy) i w kalkulatorze (gdy usługa nie jest wybrana). Komunikat API „Wybierz rodzaj usługi z listy.” (`api/rezerwacja.js:104`) zostaje — to prawdziwy błąd przy wysyłce.",
+        "Gdzie: `website/index.html:2146` (`p.wyc-uwaga` w `#bWycenaWynik`), `website/kalkulator.js:112` (`if (!usluga) brak = 'Wybierz rodzaj usługi.';`); testy kalkulatora, jeśli sprawdzają ten tekst.",
+        "Odbiór: zrzut formularza na 390 px przed wyborem usługi; testy przechodzą.",
+        "Źródło: 🤖 AI, drugi audyt strony 2026-11-22 · Powiązane: #0016"
+      ]
+    },
+    {
+      "klucz": "N3",
+      "sekcja": "4",
+      "linia1": "P3 · treść · 🤖 AI · A · Haiku/low · SPRAWDZONE 2026-11-22",
+      "poLudzku": "Akapit w sekcji Kontakt urósł do czterech zdań z trzema różnymi zaproszeniami (kalendarz, telefon, pytanie o cenę). Skracamy go, zostawiając to, co najważniejsze: kalendarz dla zdecydowanych i telefon lub wiadomość dla tych, którzy chcą najpierw zapytać — bez zobowiązań. Przy okazji usuwamy z kodu strony dwie wewnętrzne notatki.",
+      "liczba": "aleblysk.zgloszenia ↑",
+      "tresc": [
+        "Zakres 1 — Kontakt: `p.contact-lead` zamiast obecnych czterech zdań: „Najszybciej umówisz sprzątanie przez kalendarz na górze strony. Chcesz najpierw zapytać o cenę albo zakres? Zadzwoń lub napisz — odpowiemy i wycenimy bez zobowiązań.” (zdanie o „bez zobowiązań” w brzmieniu zatwierdzonym przez właściciela zostaje bez zmian; znika „wybierasz termin, a my potwierdzamy. Wolisz porozmawiać? Jesteśmy pod telefonem.”, bo przyciski telefonu i e-maila stoją tuż pod akapitem).",
+        "Zakres 2 — wewnętrzne notatki w publicznym kodzie: usunąć komentarz „link „Opinie” wróci razem z kartami opinii” (informacja jest w rejestrze przy #0044) i numer zadania z komentarza „Wycena na żywo w formularzu rezerwacji (#0016)” (zostaje „Wycena na żywo w formularzu rezerwacji”), zgodnie z zasadą z #0095.",
+        "Poza zakresem (celowo): pytanie FAQ „Jakie są koszty sprzątania oraz możliwości płatności za zrealizowane usługi?” — dostało pełne brzmienie świadomie 2026-11-22 (commit bec165c), więc zostaje.",
+        "Gdzie: `website/index.html:2386-2388` (`p.contact-lead`), komentarze `:1925` i `:2581`; testy treści Kontaktu w `tests/tresc.test.js` (zachować sprawdzenie „bez zobowiązań” w Kontakcie).",
+        "Odbiór: zrzut sekcji Kontakt na 390 i 1440 px; `rg -n \"<!--\" website/index.html` bez numerów zadań i notatek o opiniach; testy przechodzą.",
+        "Źródło: 🤖 AI, drugi audyt strony 2026-11-22 · Powiązane: #0095, #0044"
+      ]
+    }
+  ]
+}

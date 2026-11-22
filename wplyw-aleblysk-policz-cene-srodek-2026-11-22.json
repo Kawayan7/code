@@ -1,0 +1,20 @@
+{
+  "sesja": "przycisk „Policz orientacyjną cenę” wyśrodkowany na telefonie — zgłoszenie właściciela 2026-11-22 (sesja w chmurze)",
+  "nowe": [
+    {
+      "klucz": "N1",
+      "sekcja": "4",
+      "linia1": "P3 · mobile · 👤 właściciel · A · Haiku/low · SPRAWDZONE 2026-11-22",
+      "poLudzku": "Na telefonie przycisk „Policz orientacyjną cenę” pod cennikiem stoi przy lewej krawędzi, a zielona ramka pod nim jest na całą szerokość i ma tekst wyśrodkowany — wygląda to niesymetrycznie. Na telefonach przycisk i zdanie pod nim mają być wyśrodkowane. Na komputerze bez zmian.",
+      "liczba": "aleblysk.zgloszenia ↑",
+      "tresc": [
+        "Na ekranach do 560 px `.cennik-licz` (flex z zawijaniem) układa przycisk przy lewej krawędzi (390 px: 40 px z lewej, 120 px z prawej), a tekst pod nim jest wyrównany do lewej, podczas gdy ramka „Podane ceny są orientacyjne…” pod spodem ma tekst wyśrodkowany.",
+        "Naprawa: w bloku `@media (max-width: 560px)` reguła `.cennik-licz { flex-direction: column; justify-content: center; text-align: center; }` — przycisk i zdanie pod nim na środku; powyżej 560 px układ w jednym rzędzie jak dziś.",
+        "Gdzie: `website/index.html:858-869` (`.cennik-licz` i jego `span`), znacznik `:2362-2363`; blok telefonu `@media (max-width: 560px)` (reguła nie koliduje z blokiem 960 px, bo tam `.cennik-licz` nie występuje); test `tests/kalkulator.test.js:137` czyta znacznik `p.cennik-licz` — znacznik bez zmian.",
+        "Dowód: zrzut z iPhone'a właściciela 2026-11-22 17:47; w Chromium 390 px po wstrzyknięciu reguły przycisk ma po 80 px marginesu z obu stron, a zdanie pod nim jest wyśrodkowane.",
+        "Odbiór: zrzuty sekcji Cennik na 320, 390 i 1440 px.",
+        "Źródło: 👤 właściciel, 2026-11-22"
+      ]
+    }
+  ]
+}

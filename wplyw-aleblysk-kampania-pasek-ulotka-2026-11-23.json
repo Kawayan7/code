@@ -1,0 +1,39 @@
+{
+  "sesja": "kampania „Ale Błysk na święta!” (start 30.11): pasek na stronie i ulotka do druku w domu — plan właściciela 2026-11-22 (sesja w chmurze)",
+  "nowe": [
+    {
+      "klucz": "N1",
+      "sekcja": "4",
+      "linia1": "P1 · wzrost · 👤 właściciel · A · Sonnet/medium · SPRAWDZONE 2026-11-23",
+      "poLudzku": "Kampania świąteczna rusza 30 listopada. Nad kalendarzem rezerwacji pojawi się wtedy pasek „Ale Błysk na święta!” z zachętą do wczesnej rezerwacji, a przy logo mała gałązka świerku. Pasek włącza się sam 30 listopada i sam znika po 23 grudnia, więc można go wdrożyć wcześniej i nikt nie musi pamiętać o dacie. Terminy 27–29 grudnia zostają w kalendarzu bez żadnej adnotacji.",
+      "liczba": "aleblysk.zgloszenia ↑",
+      "tresc": [
+        "Strona nie mówi dziś nic o sezonie świątecznym; plan kampanii (dokument „Ale Błysk na święta — koncept kampanii”, wersja 2026-11-22) przewiduje pasek nad kalendarzem i drobny akcent świąteczny od 30 listopada do 23 grudnia, bez voucherów, bez akcji po świętach i bez podstrony /swieta.",
+        "Zakres 1 — pasek: na górze karty rezerwacji (`#bookingForm`, nad `.bk-head`) wąska ramka w kolorze `var(--ink)` z jasnym tekstem, na komputerze i telefonie. Treść (zatwierdzona w planie): pogrubione „Ale Błysk na święta!”, dalej „Sprzątamy do 23 grudnia, dopóki są wolne terminy. Zarezerwuj teraz i miej pewny termin przed świętami.” Bez linków i bez ceny.",
+        "Zakres 2 — akcent: mała gałązka świerku (inline SVG, cienka linia w kolorze logo) obok symbolu w `.nav-logo`; jeśli na 320 px zderza się z napisem albo przyciskiem menu — pominąć akcent, pasek wystarczy.",
+        "Zakres 3 — daty: pasek i akcent są w HTML z atrybutem `hidden`; krótki skrypt odsłania je tylko między 2026-11-30 00:00 a 2026-12-23 23:59 czasu polskiego (Europe/Warsaw) oraz przy parametrze `?podglad=swieta` (podgląd przed startem). Po 23 grudnia nic nie trzeba wdrażać; sprzątnięcie kodu — osobno po sezonie.",
+        "Poza zakresem (celowo): menu, hasło w hero, cennik, kalendarz i jego godziny, formularz, maile i SMS-y, schema; żadnej wzmianki o voucherach ani o 27–29 grudnia.",
+        "Gdzie: karta rezerwacji `website/index.html:2006-2010` (`div.booking-card#bookingForm`, `.bk-head`), logo `:1939-1945` (`a.nav-logo`), style karty `:403-413` (`.booking-card`); skrypty na końcu strony.",
+        "Odbiór: test w `tests/tresc.test.js` (pasek i akcent mają `hidden`, skrypt zawiera granice 2026-11-30 i 2026-12-23 oraz `podglad=swieta`, w treści paska brak słowa „voucher”); zrzuty z `?podglad=swieta` na 320, 390 i 1440 px (pasek nie zasłania kalendarza, karta nie rozpycha się na telefonie — zob. #0098, #0103); bez parametru dziś pasek niewidoczny. Wdrożenie najpóźniej 29 listopada.",
+        "Źródło: 👤 właściciel, plan kampanii 2026-11-22 · Powiązane: #0098, #0103, #N2"
+      ]
+    },
+    {
+      "klucz": "N2",
+      "sekcja": "4",
+      "linia1": "P1 · wzrost · 👤 właściciel · A · Sonnet/medium · SPRAWDZONE 2026-11-23",
+      "poLudzku": "Do kampanii potrzebna jest ulotka A6, którą wydrukujecie sami w domu: cztery ulotki na jednej kartce A4, dwustronnie. Agent przygotuje gotowy plik PDF w kolorach i czcionce strony, z kodem QR prowadzącym prosto do kalendarza. Będą dwie wersje — na pierwszą rundę roznoszenia (5–6 grudnia) i drugą (12–13 grudnia) — żeby było widać, która przyniosła więcej rezerwacji.",
+      "liczba": "aleblysk.zgloszenia ↑",
+      "tresc": [
+        "Ulotka 2026-11 w `docs/ulotki/` to A5 z cennikiem i innym krojem (Plus Jakarta Sans); na kampanię potrzebna jest ulotka A6 do druku na domowej drukarce, zgodna z zasadami marki (Outfit, `#2e4a24`, symbol z `docs/logo/`).",
+        "Zakres — format: nowe źródło `docs/ulotki/ulotka-swieta-2026.html`, strona A4 pionowa z 4 identycznymi ulotkami A6 (2 × 2, każda 105 × 148,5 mm), cienkie szare linie cięcia; strona 1 = przody, strona 2 = tyły. Treść w każdej ulotce co najmniej 6 mm od krawędzi kartki (domowe drukarki nie drukują do brzegu) i bez pełnych ciemnych teł — jasny papier, zieleń w nagłówku, liniach i kodzie QR (oszczędność tuszu). Wszystkie 4 ulotki na arkuszu są takie same, więc przy druku dwustronnym przody i tyły się zgadzają niezależnie od obrotu kartki.",
+        "Zakres — przód (tekst z planu): „Ale Błysk na święta!” · „Święta błyszczą. Ty odpoczywasz.” · „Sprzątanie mieszkań i domów w Łodzi i okolicach — od 200 zł” · „Zarezerwuj teraz — pewny termin przed świętami” · kod QR (min. 22 mm) z podpisem „Zeskanuj i wybierz termin” · „571 810 666 · aleblysk.com” · symbol logo z `docs/logo/ale-blysk-symbol-kolor.svg` (min. 12 mm wg zasad marki).",
+        "Zakres — tył: „Sprzątamy 7 dni w tygodniu, także w weekendy” · „Własne środki, płacisz po sprzątaniu” · „Biura i lokale z fakturą” · „Terminy do 23 grudnia, dopóki są wolne miejsca” · „Wpisz kod SWIETA-ULOTKA w uwagach do rezerwacji” · telefon i adres strony. Bez voucherów, bez akcji po świętach, ceny tylko „od 200 zł” zgodne z cennikiem na stronie.",
+        "Zakres — kody QR i wersje: dwa pliki PDF, `docs/ulotki/ulotka-swieta-2026-runda1.pdf` i `-runda2.pdf`, różniące się tylko kodem QR: `https://www.aleblysk.com/?utm_source=ulotka&utm_medium=druk&utm_campaign=swieta2026&utm_content=runda1#bookingForm` (i `runda2`). Jeśli przed drukiem działa licznik skanów z #0086 (`/q/:kod`), zamiast tego `https://www.aleblysk.com/q/swieta-1` i `/q/swieta-2`. Kody QR generowane lokalnie do SVG (poziom korekcji M), bez usług online; PDF eksportowany headless Chromium tak jak ulotka 2026-11.",
+        "Do pliku README w `docs/ulotki/` (dopisać sekcję): jak drukować — „Rzeczywisty rozmiar / 100%”, druk dwustronny, papier 120–170 g/m², cięcie po liniach na 4 ulotki.",
+        "Odbiór: oba PDF-y mają 2 strony A4; dekodowanie kodów QR z PDF (np. zbar albo Python) daje dokładnie powyższe adresy; podgląd PNG obu stron dla właściciela; teksty zgodne z planem kampanii; arkusz próbny na drukarce właściciela przed 5 grudnia (nie blokuje zamknięcia).",
+        "Źródło: 👤 właściciel, plan kampanii 2026-11-22 (ulotki drukowane w domu, rundy 5–6 i 12–13 grudnia) · Powiązane: #0086, #N1"
+      ]
+    }
+  ]
+}
